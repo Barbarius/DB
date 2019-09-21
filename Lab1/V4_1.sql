@@ -1,4 +1,4 @@
-CREATE DATABASE NewDatabase;
+CREATE DATABASE Sergei_Bysov;
 GO
 
 CREATE SCHEMA scales;
@@ -7,14 +7,14 @@ GO
 CREATE SCHEMA persons;
 GO
 
-CREATE TABLE sales.Orders (OrderNum INT NULL);
+CREATE TABLE scales.Orders (OrderNum INT NULL);
 GO
 
-BACKUP DATABASE NewDatabase TO DISK='D:\Documents\DB\Lab1\NewDatabase.bak';
+BACKUP DATABASE Sergei_Bysov TO DISK='D:\Documents\DB\Lab1\Sergei_Bysov.bak';
 GO
 
-DROP DATABASE NewDatabase;
+DROP DATABASE Sergei_Bysov;
 GO
 
-RESTORE DATABASE NewDatabase FROM DISK='D:\Documents\DB\Lab1\NewDatabase.bak';
+RESTORE DATABASE Sergei_Bysov FROM DISK='D:\Documents\DB\Lab1\Sergei_Bysov.bak';
 GO

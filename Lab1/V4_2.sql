@@ -12,5 +12,5 @@ GO
 --task3
 SELECT BusinessEntityID, JobTitle, Gender, BirthDate, HireDate
 FROM AdventureWorks2012.HumanResources.Employee
-WHERE CHARINDEX('Engineer', JobTitle) > 0;
+WHERE JobTitle LIKE '%Engineer%';
 GO
