@@ -1,3 +1,6 @@
+USE AdventureWorks2012;
+GO
+
 --task à)
 
 DROP TABLE [dbo].[StateProvince];
@@ -10,10 +13,7 @@ CREATE TABLE [dbo].[StateProvince](
 	[IsOnlyStateProvinceFlag] FLAG NOT NULL,
 	[Name] NAME NOT NULL,
 	[TerritoryID] INT NOT NULL,
-	[ModifiedDate] DATETIME NOT NULL,
-	CONSTRAINT [PK_StateProvince_StateProvinceID] PRIMARY KEY CLUSTERED ([StateProvinceID]),
-	CONSTRAINT [FK_CountryRegion_CountryRegionCode] FOREIGN KEY ([CountryRegionCode]) REFERENCES [Person].[CountryRegion]([CountryRegionCode]),
-	CONSTRAINT [FK_SalesTerritory_TerritoryID] FOREIGN KEY ([TerritoryID]) REFERENCES [Sales].[SalesTerritory](TerritoryID)
+	[ModifiedDate] DATETIME NOT NULL
 );
 GO
 
@@ -24,7 +24,7 @@ GO
 
 --task c)
 ALTER TABLE [dbo].[StateProvince]
-ADD CONSTRAINT [CHK_StateProvince_CountryRegionCode_Only_Alphabets] CHECK (CountryRegionCode NOT LIKE '%[^A-Z]%') 
+ADD CONSTRAINT [CHK_StateProvince_CountryRegionCode_Only_Alphabets] CHECK (CountryRegionCode NOT LIKE '%[0-9]%') 
 GO
 
 --task d)
