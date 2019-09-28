@@ -1,6 +1,7 @@
 --task à)
 
-DROP TABLE [dbo].[StateProvince]
+DROP TABLE [dbo].[StateProvince];
+GO
 
 CREATE TABLE [dbo].[StateProvince](								
 	[StateProvinceID] INT NOT NULL,
@@ -61,7 +62,7 @@ ALTER TABLE [dbo].[StateProvince] ADD CountryNum INT NULL;
 GO
 
 SELECT *
-FROM dbo.StateProvince
+FROM [dbo].[StateProvince]
 
 SELECT *
-FROM Person.StateProvince
+FROM Person.[StateProvince]

@@ -26,10 +26,10 @@ WHERE AdventureWorks2012.HumanResources.Shift.Name = 'Night';
 GO
 
 --task3
-SELECT AdventureWorks2012.HumanResources.Employee.BusinessEntityID as BusinessEntityID,
-AdventureWorks2012.HumanResources.Employee.JobTitle as JobTitle,
-AdventureWorks2012.HumanResources.EmployeePayHistory.Rate as Rate
-FROM AdventureWorks2012.HumanResources.Employee
-INNER JOIN AdventureWorks2012.HumanResources.EmployeePayHistory
-ON AdventureWorks2012.HumanResources.Employee.BusinessEntityID = AdventureWorks2012.HumanResources.EmployeePayHistory.BusinessEntityID;
+SELECT [emp].[BusinessEntityID], [emp].[JobTitle], [temp_emp].[Rate], 
+LAG([temp_emp].[Rate], 1, 0) OVER (PARTITION BY [emp].[BusinessEntityID] ORDER BY [temp_emp].[Rate]) as PrevRate, 
+([temp_emp].[Rate] - LAG([temp_emp].[Rate], 1, 0) OVER (PARTITION BY [emp].[BusinessEntityID] ORDER BY [temp_emp].[Rate])) as Increased 
+FROM [AdventureWorks2012].[HumanResources].[Employee] AS emp
+INNER JOIN [HumanResources].[EmployeePayHistory] as temp_emp
+ON [emp].[BusinessEntityID] = [temp_emp].[BusinessEntityID]; 
 GO
