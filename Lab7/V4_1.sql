@@ -26,14 +26,14 @@ CREATE PROCEDURE dbo.GetVendorTableFromXML @xmlTable XML
 AS
 BEGIN
 	CREATE TABLE #resultVendorTable
-    (
+	(
 		BusinessEntityID int,
 		Name NVARCHAR(50),
 		AccountNumber NVARCHAR(15)
 	);
 
 	INSERT INTO #resultVendorTable
-    SELECT 
+	SELECT 
 		BusinessEntityID = node.value('ID[1]', 'INT'),
 		Name = node.value('Name[1]', 'NVARCHAR(50)'),
 		AccountNumber = node.value('AccountNumber[1]', 'NVARCHAR(15)')
